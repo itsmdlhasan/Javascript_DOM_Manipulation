@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Dom</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+    </header>
+    <main>
+        <section>
+            <h1>My awesome DOM</h1>
+            <ul id="band-container">
+                <li>Jalali Set</li>
+                <li>Shafayet</li>
+                <li>Bonobash</li>
+            </ul>
+        </section>
+
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class coral-bg">Fruits I like</h1>
+            <h1 id="fruits-title" class="some-class coral-bg">Fruits I like</h1>
+            <ul>
+                <li>Pineapple</li>
+                <li>Grape</li>
+                <li>Watermelon</li>
+            </ul>
+        </section>
+
+        <section class="place-container">
+            <h1>Places I like to visit</h1>
+            <ul>
+                <li class="important-place">Sundarban</li>
+                <li>Bandarban</li>
+                <li class="important-place">Katabon</li>
+            </ul>
+        </section>
+
+        
+        <section class="place-container">
+            <h1>Places I like to visit</h1>
+            <ul>
+                <li class="important-place">Sundarban</li>
+                <li>Bandarban</li>
+                <li class="important-place">Katabon</li>
+            </ul>
+        </section>
+    </main>
+    <script src="index.js"></script>
+
+    <script>
+        // 5 ways to call DOM (1.tagName, 2.Id, 3.Class, 4.querySelector, 5.querySelectorAll)
+        console.log(document); // full document node ta dekhabe
+        console.log(document.body); // document node er moddhe body node ke dekhabe
+        console.log(document.getElementsByTagName('h1')); // document node er sokol h1 tag dekhabe
+        console.log(document.getElementsByTagName('h1')[1]); // document node er solol h1 er moddhe 1 index number ta dekhabe
+        console.log(document.getElementById('fruits-title')); // id dara dekhabe
+        console.log(document.getElementById('fruits-title').innerText = 'My favorite fruits (this heading changed by js)'); // id dara text change kore felbe
+        console.log(document.getElementsByClassName('important-place')); // class name dara dekhabe
+        console.log(document.getElementsByClassName('important-place')[0]); // same class name er 0 no index dekhabe
+        console.log(document.querySelectorAll('.fruits-container')); // query ba .class or #id dara dekhabe
+        console.log(document.querySelectorAll('.fruits-container li')); // .class query er vitorer li gulo dekhabe
+        console.log(document.querySelector('.fruits-container li')); // .class query er vitorer prothom li gulo dekhabe
+
+
+        // Styling with calling DOM
+        console.log(document.getElementById('fruits-title').style.backgroundColor = 'coral'); // dash er bodle camel case use kore style apply kora hoy
+        console.log(document.getElementById('fruits-title').getAttribute('id')); // id attribute khuje ber kora
+        console.log(document.getElementById('fruits-title').getAttribute('class')); // class attribute khuje ber kora
+        console.log(document.getElementById('fruits-title').classList); // evabeo class attribute khuje pawa jay
+        console.log(document.getElementById('fruits-title').classList.remove('coral-bg')); // class name remove kora
+        console.log(document.getElementById('fruits-title').classList);
+        console.log(document.getElementById('fruits-title').classList.add('added')); // class name add kora
+        console.log(document.getElementById('fruits-title').classList);
+        console.log(document.getElementById('fruits-title').setAttribute('title', 'tooltip set by javascript')); // set attribute
+        console.log(document.getElementsByClassName('place-container')[1].innerHTML = '<h2>Wow DOM is changing (by javascript)</h2>'); // puro innerHTML ke poriborton kore shudhu h2 baniye rakhbe
+        console.log(document.querySelectorAll('.fruits-container')[0].style.backgroundColor = 'limegreen'); // query selection and index dara style apply
+
+
+        // Node 
+        console.log(document); // pura document ke dekhabe ja ekta element node
+        console.log(document.getElementsByClassName('band-container')[0].childNodes); // band-container class er sokol child nodes ke dekha
+        console.log(document.getElementsByClassName('band-container')[0].parentNode); // band-container class er parent node ke dekha
+        console.log(document.createElement('p')); // node element toiri kora
+        console.log(document.createElement('p').innerText = 'node element toiri kora'); // node element toiri kora o text set kora
+    </script>
+</body>
+
+</html>

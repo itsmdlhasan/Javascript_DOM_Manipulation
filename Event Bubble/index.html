@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+</head>
+
+<body>
+    <section id="section">
+        <h1>Click text below</h1>
+        <ul id="ul">
+            <li id="item-1">Lorem, ipsum.</li>
+            <li id="item-2">Delectus, consequuntur?</li>
+            <li id="item-3">Cum, consectetur.</li>
+            <li id="item-4">Accusamus, autem!</li>
+            <li id="item-5">Voluptate, quia!</li>
+            <li id="item-6">Et, consequuntur!</li>
+        </ul>
+    </section>
+
+    <script>
+        document.getElementById('item-1').addEventListener('click', function(){
+            console.log('item-1 clicked but it will propagate');
+        });
+        document.getElementById('item-2').addEventListener('click', function(event){ // এখানে propagation কে বন্ধ করে দেয়া হয়েছে। 
+            console.log('item-2 clicked and stop propagating');
+            event.stopPropagation();
+        });
+        document.getElementById('item-3').addEventListener('click', function(){
+            console.log('item-3 clicked but it will propagate');
+        });
+        document.getElementById('ul').addEventListener('click', function(){
+            console.log('ul clicked');
+        });
+        document.getElementById('section').addEventListener('click', function(){
+            console.log('section clicked');
+        });
+    </script>
+</body>
+
+</html>

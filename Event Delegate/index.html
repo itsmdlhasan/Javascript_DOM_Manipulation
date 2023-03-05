@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Event Delegate</h1>
+    <ul id="list-container">
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Temporibus, quia aliquid.</li>
+        <li class="item">Consectetur, dolores animi.</li>
+        <li class="item">Tempora, officiis consequatur?</li>
+        <li class="item">Nobis, cum voluptates!</li>
+        <li class="item">Dolorum, vel et?</li>
+    </ul>
+    <button id="btn">Add item</button>
+
+    <script>
+        document.getElementById('list-container').addEventListener('click', function(event){
+            // console.log(event.target);
+            // console.log(event.target.parentNode);
+            event.target.parentNode.removeChild(event.target); // এখানে event bubble এর ফলে event delegate করা সম্ভব হয়েছে, কারন list-container এর কোনো item এ ক্লিক করা মানে list-container এ ক্লিক করা। 
+        });
+        document.getElementById('btn').addEventListener('click', function(){
+            const liContainer = document.getElementById('list-container');
+            const li = document.createElement('li');
+            li.innerText = 'Notun add kora hoyeche';
+            li.classList.add('item');
+            liContainer.appendChild(li);
+        });
+        </script>
+</body>
+</html>
